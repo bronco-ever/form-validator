@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap');
 
 * {
   margin: 0;
@@ -7,4 +8,23 @@
 
 body {
   min-height: 100vh;
+  font-family: 'Newsreader', serif;
+  letter-spacing: 0.8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #c2cacc;
+  background: linear-gradient(145deg, rgba(194, 202, 204, 1) 0%, rgba(101, 128, 114, 1) 50%, rgba(111, 110, 128, 1) 100%);
+}
+
+.container {
+  width: 480px;
+  height: 630px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 10px 15px 30px 15px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
 }
