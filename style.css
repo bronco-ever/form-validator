@@ -61,12 +61,36 @@ input {
   transition: all 0.3s ease;
 }
 
+#password-requirements {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 5px;
+  font-size: 10px;
+}
+
+#password-match {
+  margin-top: 5px;
+  font-size: 10px;
+}
+
+#password-requirements .valid, #password-match .valid {
+  color: green;
+}
+#password-requirements .invalid, #password-match .invalid {
+  color: red;
+}
+
 input:valid {
-  border: 1px solid green;
+  border: 1px solid green !important;
 }
 
 input:invalid {
-  border: 1px solid red;
+  border: 1px solid red !important;
+}
+
+.custom-margin-passConfirm {
+  margin-top: 12px;
 }
 
 button {
@@ -100,7 +124,7 @@ button:focus {
   border-radius: 6px;
   width: 90%;
   height: 55px;
-  margin-top: 20px;
+  margin-top: 18px;
   padding: 10px;
   background: rgba(101, 127, 104, 0.4);
   display: flex;

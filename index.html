@@ -15,27 +15,37 @@
         <form id="form">
             <div class="form-group">
                 <label for="name">Full Name</label>
-                <input type="text" id="name" placeholder="Full Name">
+                <input type="text" id="name" placeholder="Full Name" required minlength="3" maxlength="60">
             </div>
             <div class="form-group">
                 <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" placeholder="XXX-XXX-XXXX">
+                <input type="tel" id="phone" placeholder="(123) 456-7890" pattern="\(\d{3}\)\s\d{3}-\d{4}" maxlength="14" required>
             </div>
             <div class="form-group">
                 <label for="email">Email Address</label>
-                <input type="email" id="email" placeholder="email@domain.com">
+                <input type="email" id="email" placeholder="email@domain.com" required>
             </div>
             <div class="form-group">
                 <label for="website">Website URL</label>
-                <input type="url" id="website" placeholder="https://website.com">
+                <input type="url" id="website" placeholder="https://website.com" required>
             </div>
             <div class="form-group">
                 <label for="password1">Password</label>
-                <input type="password" id="password1" placeholder="Create Password">
+                <input type="password" id="password1" placeholder="Create Password" minlength="8" maxlength="15" required>
+                <div id="password-requirements">
+                    <p id="req-length" class="invalid">❌ 8-15</p>
+                    <p id="req-lower" class="invalid">❌ Lowercase</p>
+                    <p id="req-upper" class="invalid">❌ Uppercase</p>
+                    <p id="req-number" class="invalid">❌ Number</p>
+                    <p id="req-special" class="invalid">❌ Special (@$!%*?&)</p>
+                </div>
             </div>
-            <div class="form-group">
+            <div class="form-group custom-margin-passConfirm">
                 <label for="password2">Confirm Password</label>
-                <input type="password" id="password2" placeholder="Confirm Password">
+                <input type="password" id="password2" placeholder="Confirm Password" required>
+                <div id="password-match">
+                    <p id="match-status" class="invalid">❌ Passwords must match</p>
+                </div>
             </div>
             <button type="submit">Register</button>
         </form>
