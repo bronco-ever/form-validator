@@ -1,5 +1,9 @@
 'use strict';
 
+const form = document.getElementById('form');
+const messageContainer = document.querySelector('.message-container');
+const message = document.getElementById('message');
+
 const phoneInput = document.getElementById('phone');
 
 const passwordInput = document.getElementById('password1');
@@ -107,3 +111,27 @@ phoneInput.addEventListener('input', () => {
 
   phoneInput.value = formattedNumber;
 });
+
+let isValid = false;
+
+function validateForm() {
+  isValid = form.checkValidity();
+  
+  message.textContent = 'Please fill out all of the fields.';
+  message.style.color = 'red';
+  messageContainer.style.borderColor = 'red';
+
+  if(isValid) {
+    message.textContent = 'Success! Thank you for registering.';
+    message.style.color = 'green';
+    messageContainer.style.borderColor = 'green';
+  }
+}
+
+// Form submit event
+function processFormData(e) {
+  e.preventDefault();
+  validateForm();
+}
+
+form.addEventListener('submit', processFormData);
