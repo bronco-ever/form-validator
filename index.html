@@ -15,19 +15,19 @@
         <form id="form">
             <div class="form-group">
                 <label for="name">Full Name</label>
-                <input type="text" id="name" placeholder="Full Name" required minlength="3" maxlength="60">
+                <input type="text" id="name" placeholder="Full Name" name="name"  minlength="3" maxlength="60" required>
             </div>
             <div class="form-group">
                 <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" placeholder="(123) 456-7890" pattern="\(\d{3}\)\s\d{3}-\d{4}" maxlength="14" required>
+                <input type="tel" id="phone" placeholder="(123) 456-7890" name="phone" pattern="\(\d{3}\)\s\d{3}-\d{4}" maxlength="14" required>
             </div>
             <div class="form-group">
                 <label for="email">Email Address</label>
-                <input type="email" id="email" placeholder="email@domain.com" required>
+                <input type="email" id="email" placeholder="email@domain.com" name="email" required>
             </div>
             <div class="form-group">
                 <label for="website">Website URL</label>
-                <input type="url" id="website" placeholder="https://website.com" required>
+                <input type="url" id="website" placeholder="https://website.com" name="website" required>
             </div>
             <div class="form-group">
                 <label for="password1">Password</label>
@@ -42,7 +42,7 @@
             </div>
             <div class="form-group custom-margin-passConfirm">
                 <label for="password2">Confirm Password</label>
-                <input type="password" id="password2" placeholder="Confirm Password" required>
+                <input type="password" id="password2" placeholder="Confirm Password" name="password" required>
                 <div id="password-match">
                     <p id="match-status" class="invalid">❌ Passwords must match</p>
                 </div>

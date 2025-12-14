@@ -16,6 +16,31 @@ const reqSpecial = document.getElementById('req-special');
 const password2 = document.getElementById('password2');
 const matchStatus = document.getElementById('match-status');
 
+let isValid = false;
+
+// Format phone number as (123) 456-7890
+phoneInput.addEventListener('input', () => {
+  let digits = phoneInput.value.replace(/\D/g, '');
+  if(digits.length > 10) {
+    digits = digits.substring(0, 10);
+  }
+
+  let formattedNumber = '';
+
+  if(digits.length > 0) {
+    formattedNumber += '(' + digits.substring(0, 3);
+  }
+  if(digits.length >= 4) {
+    formattedNumber += ') ' + digits.substring(3, Math.min(6, digits.length));
+  }
+  if(digits.length >= 7) {
+    formattedNumber += '-' + digits.substring(6, 10);
+  }
+
+  phoneInput.value = formattedNumber;
+});
+
+
 // Password 1 validation
 passwordInput.addEventListener('input', () => {
   const value = passwordInput.value;
@@ -89,37 +114,25 @@ function checkPasswordMatch() {
 passwordInput.addEventListener('input', checkPasswordMatch);
 password2.addEventListener('input', checkPasswordMatch);
 
-
-// Format phone number as (123) 456-7890
-phoneInput.addEventListener('input', () => {
-  let digits = phoneInput.value.replace(/\D/g, '');
-  if(digits.length > 10) {
-    digits = digits.substring(0, 10);
-  }
-
-  let formattedNumber = '';
-
-  if(digits.length > 0) {
-    formattedNumber += '(' + digits.substring(0, 3);
-  }
-  if(digits.length >= 4) {
-    formattedNumber += ') ' + digits.substring(3, Math.min(6, digits.length));
-  }
-  if(digits.length >= 7) {
-    formattedNumber += '-' + digits.substring(6, 10);
-  }
-
-  phoneInput.value = formattedNumber;
-});
-
-let isValid = false;
+function storeFormData() {
+  const user = {
+    name: form.name.value,
+    phone: form.phone.value,
+    email: form.email.value,
+    website: form.website.value,
+    password: form.password.value
+  };
+  console.log(user);
+}
 
 function validateForm() {
   isValid = form.checkValidity();
   
-  message.textContent = 'Please fill out all of the fields.';
-  message.style.color = 'red';
-  messageContainer.style.borderColor = 'red';
+  if(!isValid) {
+    message.textContent = 'Please fill out all of the fields.';
+    message.style.color = 'red';
+    messageContainer.style.borderColor = 'red';
+  }
 
   if(isValid) {
     message.textContent = 'Success! Thank you for registering.';
@@ -132,6 +145,9 @@ function validateForm() {
 function processFormData(e) {
   e.preventDefault();
   validateForm();
+  if(isValid) {
+    storeFormData();
+  }
 }
 
 form.addEventListener('submit', processFormData);
